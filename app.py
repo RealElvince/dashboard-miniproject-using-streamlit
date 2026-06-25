@@ -125,7 +125,7 @@ with col5:
         text_auto=".2s"
     )
 
-    st.plotly_chart(fig_region,use_container_width=True)
+    st.plotly_chart(fig_region, width="stretch")
 
 
 with col6:
@@ -141,7 +141,7 @@ with col6:
         values="Total Revenue",
         title="Revenue Share by Product Category"
     )
-    st.plotly_chart(fig_category, use_container_width=True)
+    st.plotly_chart(fig_category, width="stretch")
 
 
 # Monthly revenue
@@ -158,7 +158,7 @@ fig_monthly = px.line(
     markers=True,
     title="Monthly Revenue Trend"
 )
-st.plotly_chart(fig_monthly, use_container_width=True)
+st.plotly_chart(fig_monthly, width="stretch")
 
 col7, col8 = st.columns(2)
 
@@ -176,7 +176,7 @@ with col7:
         title="Revenue by Payment Method",
         text_auto=".2s"
     )
-    st.plotly_chart(fig_payment, use_container_width=True)
+    st.plotly_chart(fig_payment, width="stretch")
 
 with col8:
     top_products = (
@@ -195,14 +195,14 @@ with col8:
         text_auto=".2s"
     )
     fig_products.update_layout(yaxis={"categoryorder": "total ascending"})
-    st.plotly_chart(fig_products, use_container_width=True)
+    st.plotly_chart(fig_products, width="stretch")
 
 #-------------
 # Data Table
 #-------------
 
 st.subheader("Filtered Sales Dataset")
-st.dataframe(filtered_df,use_container_width=True)
+st.dataframe(filtered_df,width="stretch")
 
 #-----------------
 # Insights
