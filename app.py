@@ -83,3 +83,4 @@ total_transactions = filtered_df["Transaction ID"].nunique()
 average_order_value = total_revenue / total_transactions if total_transactions > 0 else 0
 
 
+col1, col2, col3, col4 = st.columns(4)
