@@ -68,6 +68,7 @@ else:
 filtered_df = df[
     (df["Date"].dt.date >= start_date) &
     (df["Date"].dt.date <= end_date) &
+     (df["Product Name"]) &
     (df["Region"].isin(selected_regions)) &
     (df["Product Category"].isin(selected_categories)) &
     (df["Payment Method"].isin(selected_payment_methods))
@@ -152,5 +153,7 @@ fig_monthly = px.line(
     title="Monthly Revenue Trend"
 )
 st.plotly_chart(fig_monthly, use_container_width=True)
+
+
 
 
