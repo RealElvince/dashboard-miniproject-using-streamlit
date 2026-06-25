@@ -82,7 +82,7 @@ total_units = filtered_df["Units Sold"].sum()
 total_transactions = filtered_df["Transaction ID"].nunique()
 average_order_value = total_revenue / total_transactions if total_transactions > 0 else 0
 
-
+st.markdown(f"##### Regions selected:{selected_regions} \n Product Categories selected:{selected_categories}.")
 col1, col2, col3, col4 = st.columns(4)
 
 col1.metric("Total Revenue",f"${total_revenue:,.2f}")
@@ -95,4 +95,10 @@ st.divider()
 if filtered_df.empty:
     st.warning("No data available for the selected filters.")
     st.stop()
+
+#------------------
+# Visualizations
+#------------------
+
+
 
