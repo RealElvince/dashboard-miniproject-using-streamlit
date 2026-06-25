@@ -102,6 +102,22 @@ if filtered_df.empty:
 
 col5,col6 = st.columns(2)
 
+with col5:
+    revenue_by_region = (
+        filtered_df.groupby("Region",as_index=False)["Total Revenue"]
+        .sum()
+        .sort_values("Total Revenue",ascending=False)
+    )
 
+
+    fig_region = px.bar(
+        revenue_by_region,
+        x="Region",
+        y="Total Revenue",
+        title="Total Revenue By Region",
+        text_auto=".2s"
+    )
+
+    st.plotly_chart(fig_region,use_container_width=True)
 
 
