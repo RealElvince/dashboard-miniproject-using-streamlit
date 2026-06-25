@@ -100,5 +100,8 @@ if filtered_df.empty:
 # Visualizations
 #------------------
 
+col5,col6 = st.columns(2)
+
+
 
 
