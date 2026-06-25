@@ -56,3 +56,10 @@ selected_payment_methods = st.sidebar.multiselect(
     options=sorted(df["Payment Method"].unique()),
     default=sorted(df["Payment Method"].unique())
 )
+
+# Handle Date Filtering safely
+
+if len(date_range) == 2:
+    start_date,end_date = date_range
+else:
+    start_date, end_date = min_date, max_date
