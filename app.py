@@ -15,13 +15,13 @@ st.write(
 )
 
 @st.cache_data
-def laod_data():
+def load_data():
     df = pd.read_csv(DATA_PATH)
     df["Date"] = pd.to_datetime(df["Date"])
     df["Month"] = df["Date"].dt.to_period("M").astype(str)
     return df
 
-df = laod_data()
+df = load_data()
 
 #---------------
 # sidebar filers
@@ -41,8 +41,8 @@ date_range = st.sidebar.date_input(
 
 selected_regions = st.sidebar.multiselect(
     "Select Region",
-    options=sorted(df["Regions"].unique()),
-    default=sorted(df["Regions"].unique())
+    options=sorted(df["Region"].unique()),
+    default=sorted(df["Region"].unique())
 )
 
 selected_categories = st.sidebar.multiselect(
@@ -89,7 +89,7 @@ total_units = filtered_df["Units Sold"].sum()
 total_transactions = filtered_df["Transaction ID"].nunique()
 average_order_value = total_revenue / total_transactions if total_transactions > 0 else 0
 
-st.markdown(f"##### Regions selected:{selected_regions} \n Product Categories selected:{selected_categories}.")
+st.markdown(f"##### Regions selected:{selected_regions} \n ##### Product Categories selected:{selected_categories}.")
 col1, col2, col3, col4 = st.columns(4)
 
 col1.metric("Total Revenue",f"${total_revenue:,.2f}")
