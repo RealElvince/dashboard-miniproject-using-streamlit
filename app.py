@@ -39,7 +39,7 @@ date_range = st.sidebar.date_input(
     max_value=max_date
 )
 
-select_region = st.sidebar.multiselect(
+selected_regions = st.sidebar.multiselect(
     "Select Region",
     options=sorted(df["Regions"].unique()),
     default=sorted(df["Regions"].unique())
@@ -63,3 +63,12 @@ if len(date_range) == 2:
     start_date,end_date = date_range
 else:
     start_date, end_date = min_date, max_date
+
+
+filtered_df = df[
+    (df["Date"].dt.date >= start_date) &
+    (df["Date"].dt.date <= end_date) &
+    (df["Region"].isin(selected_regions)) &
+    (df["Product Category"].isin(selected_categories)) &
+    (df["Payment Method"].isin(selected_payment_methods))
+]
