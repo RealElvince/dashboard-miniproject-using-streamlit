@@ -84,3 +84,9 @@ average_order_value = total_revenue / total_transactions if total_transactions >
 
 
 col1, col2, col3, col4 = st.columns(4)
+
+col1.metric("Total Revenue",f"${total_revenue:,.2f}")
+col2.metric("Unit Solds",f"{total_units:,.2f}")
+col3.metric("Transaction",f"{total_transactions:,}")
+col4.metric("Avg. Order Value",f"{average_order_value:,.2f}")
+
