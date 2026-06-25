@@ -198,4 +198,21 @@ with col8:
 st.subheader("Filtered Sales Dataset")
 st.dataframe(filtered_df,use_container_width=True)
 
+#-----------------
+# Insights
+#-----------------
+
+st.subheader("Key Insights")
+
+best_region = revenue_by_region.iloc[0]["Region"]
+best_category = revenue_by_category.iloc[0]["Product Category"]
+best_payment = payment_revenue.iloc[0]["Payment Method"]
+best_product = top_products.iloc[0]["Product Name"]
+
+st.success(
+    f"The highest revenue region is {best_region}. "
+    f"The best-performing category is {best_category}. "
+    f"The most used payment method by revenue is {best_payment}. "
+    f"The top product by revenue is {best_product}."
+)
 
