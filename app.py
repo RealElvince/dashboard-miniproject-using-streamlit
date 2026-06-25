@@ -154,6 +154,42 @@ fig_monthly = px.line(
 )
 st.plotly_chart(fig_monthly, use_container_width=True)
 
+col7, col8 = st.columns(2)
+
+with col7:
+    payment_revenue = (
+        filtered_df.groupby("Payment Method", as_index=False)["Total Revenue"]
+        .sum()
+        .sort_values("Total Revenue", ascending=False)
+    )
+
+    fig_payment = px.bar(
+        payment_revenue,
+        x="Payment Method",
+        y="Total Revenue",
+        title="Revenue by Payment Method",
+        text_auto=".2s"
+    )
+    st.plotly_chart(fig_payment, use_container_width=True)
+
+with col8:
+    top_products = (
+        filtered_df.groupby("Product Name", as_index=False)["Total Revenue"]
+        .sum()
+        .sort_values("Total Revenue", ascending=False)
+        .head(10)
+    )
+
+    fig_products = px.bar(
+        top_products,
+        x="Total Revenue",
+        y="Product Name",
+        orientation="h",
+        title="Top 10 Products by Revenue",
+        text_auto=".2s"
+    )
+    fig_products.update_layout(yaxis={"categoryorder": "total ascending"})
+    st.plotly_chart(fig_products, use_container_width=True)
 
 
 
