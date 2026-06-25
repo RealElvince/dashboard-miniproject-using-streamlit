@@ -72,3 +72,9 @@ filtered_df = df[
     (df["Product Category"].isin(selected_categories)) &
     (df["Payment Method"].isin(selected_payment_methods))
 ]
+
+# ----------
+# KPI Cards
+# ----------
+
+total_revenue = filtered_df["Total Revenue"].sum()
