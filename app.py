@@ -10,3 +10,13 @@ st.set_page_config(
 )
 st.header("Interactive Sales Dashboard")
 
+
+@st.cache_data
+def laod_data():
+    df = pd.read_csv(DATA_PATH)
+    df["Date"] = pd.to_datetime(df["Date"])
+    df["Month"] = df["Date"].dt.to_period("M").astype(str)
+    return df
+
+df = laod_data()
+
