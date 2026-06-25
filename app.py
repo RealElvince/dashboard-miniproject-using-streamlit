@@ -6,7 +6,7 @@ from pathlib import Path
 DATA_PATH = Path("data") / "online_sales_data.csv"
 
 st.set_page_config(
-    page_title="Sales Dashboard"
+    page_title="📊 Sales Dashboard"
 )
 st.header("Interactive Sales Dashboard")
 st.write(
