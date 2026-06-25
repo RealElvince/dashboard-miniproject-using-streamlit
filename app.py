@@ -23,3 +23,19 @@ def laod_data():
 
 df = laod_data()
 
+#---------------
+# sidebar filers
+#---------------
+
+st.sidebar.header("Filter Data")
+
+min_date = df["Date"].min().date()
+max_date = df["Date"].max().date()
+
+date_range = st.sidebar.date_input(
+    "Select Date Range",
+    value=(min_date,max_date),
+    min_value=min_date,
+    max_value=max_date
+)
+
