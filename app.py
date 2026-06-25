@@ -39,3 +39,14 @@ date_range = st.sidebar.date_input(
     max_value=max_date
 )
 
+select_region = st.sidebar.multiselect(
+    "Select Region",
+    options=sorted(df["Regions"].unique()),
+    default=sorted(df["Regions"].unique())
+)
+
+selected_categories = st.sidebar.multiselect(
+    "Select Product Category",
+    options=sorted(df["Product Category"].unique()),
+    default=sorted(df["Product Category"].unique())
+)
