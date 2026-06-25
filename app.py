@@ -78,3 +78,5 @@ filtered_df = df[
 # ----------
 
 total_revenue = filtered_df["Total Revenue"].sum()
+total_units = filtered_df["Units Sold"].sum()
+total_transactions = filtered_df["Transaction ID"].nunique()
