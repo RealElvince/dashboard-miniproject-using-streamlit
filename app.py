@@ -121,3 +121,20 @@ with col5:
     st.plotly_chart(fig_region,use_container_width=True)
 
 
+with col6:
+    revenue_by_category = (
+        filtered_df.groupby("Product Category", as_index=False)["Total Revenue"]
+        .sum()
+        .sort_values("Total Revenue", ascending=False)
+    )
+
+    fig_category = px.pie(
+        revenue_by_category,
+        names="Product Category",
+        values="Total Revenue",
+        title="Revenue Share by Product Category"
+    )
+    st.plotly_chart(fig_category, use_container_width=True)
+
+
+
