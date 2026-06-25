@@ -137,4 +137,20 @@ with col6:
     st.plotly_chart(fig_category, use_container_width=True)
 
 
+# Monthly revenue
+monthly_revenue = (
+    filtered_df.groupby("Month", as_index=False)["Total Revenue"]
+    .sum()
+    .sort_values("Month")
+)
+
+fig_monthly = px.line(
+    monthly_revenue,
+    x="Month",
+    y="Total Revenue",
+    markers=True,
+    title="Monthly Revenue Trend"
+)
+st.plotly_chart(fig_monthly, use_container_width=True)
+
 
