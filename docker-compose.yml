@@ -1,0 +1,15 @@
+services:
+  sales-dashboard:
+   build: .
+   container_name: sales_dashboard_app
+   ports:
+     - "8501:8501"
+   restart: unless-stopped
+   networks:
+    - sales_network
+
+
+
+networks:
+  sales_network:
+   driver: bridge
