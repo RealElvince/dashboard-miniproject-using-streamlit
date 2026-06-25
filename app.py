@@ -9,7 +9,10 @@ st.set_page_config(
     page_title="Sales Dashboard"
 )
 st.header("Interactive Sales Dashboard")
-
+st.write(
+    "This dashboard uses the uploaded online sales dataset to analyze revenue, units sold, "
+    "product categories, regions, payment methods, and sales trends."
+)
 
 @st.cache_data
 def laod_data():
