@@ -90,3 +90,9 @@ col2.metric("Unit Solds",f"{total_units:,.2f}")
 col3.metric("Transaction",f"{total_transactions:,}")
 col4.metric("Avg. Order Value",f"{average_order_value:,.2f}")
 
+st.divider()
+
+if filtered_df.empty:
+    st.warning("No data available for the selected filters.")
+    st.stop()
+
