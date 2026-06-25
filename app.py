@@ -80,3 +80,6 @@ filtered_df = df[
 total_revenue = filtered_df["Total Revenue"].sum()
 total_units = filtered_df["Units Sold"].sum()
 total_transactions = filtered_df["Transaction ID"].nunique()
+average_order_value = total_revenue / total_transactions if total_transactions > 0 else 0
+
+
