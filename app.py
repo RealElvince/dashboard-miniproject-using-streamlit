@@ -57,6 +57,12 @@ selected_payment_methods = st.sidebar.multiselect(
     default=sorted(df["Payment Method"].unique())
 )
 
+selected_products = st.sidebar.multiselect(
+    "Select Product Name",
+    options=sorted(df["Product Name"].unique()),
+    default=sorted(df["Product Name"].unique())
+)
+
 # Handle Date Filtering safely
 
 if len(date_range) == 2:
@@ -68,7 +74,7 @@ else:
 filtered_df = df[
     (df["Date"].dt.date >= start_date) &
     (df["Date"].dt.date <= end_date) &
-     (df["Product Name"]) &
+    (df["Product Name"].isin(selected_products)) &
     (df["Region"].isin(selected_regions)) &
     (df["Product Category"].isin(selected_categories)) &
     (df["Payment Method"].isin(selected_payment_methods))
