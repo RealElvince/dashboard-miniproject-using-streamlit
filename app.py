@@ -50,3 +50,9 @@ selected_categories = st.sidebar.multiselect(
     options=sorted(df["Product Category"].unique()),
     default=sorted(df["Product Category"].unique())
 )
+
+selected_payment_methods = st.sidebar.multiselect(
+    "Select Payment Method",
+    options=sorted(df["Payment Method"].unique()),
+    default=sorted(df["Payment Method"].unique())
+)
