@@ -191,5 +191,11 @@ with col8:
     fig_products.update_layout(yaxis={"categoryorder": "total ascending"})
     st.plotly_chart(fig_products, use_container_width=True)
 
+#-------------
+# Data Table
+#-------------
+
+st.subheader("Filtered Sales Dataset")
+st.dataframe(filtered_df,use_container_width=True)
 
 
